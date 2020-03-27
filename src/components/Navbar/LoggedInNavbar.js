@@ -10,13 +10,13 @@ export default class LoggedInNavbar extends Component {
           <h3 className="home">ArtistList</h3>
         </Link>
         <div className="menuBox">
-          <Link to="/events" style={{ textDecoration: "none" }}>
+          <Link to="/myartistlist" style={{ textDecoration: "none" }}>
             <h4 classname="myArtistList">My Artist List</h4>
           </Link>
-          <Link to="/events" style={{ textDecoration: "none" }}>
+          <Link to="/addconcert" style={{ textDecoration: "none" }}>
             <h4 classname="addConcert">Add Concert</h4>
           </Link>
-          <Link to="/events" style={{ textDecoration: "none" }}>
+          <Link to="/logout" style={{ textDecoration: "none" }}>
             <h4 classname="logout">Logout</h4>
           </Link>
         </div>

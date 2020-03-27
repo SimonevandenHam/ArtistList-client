@@ -10,10 +10,10 @@ export default class Navbar extends Component {
           <h3 className="home">ArtistList</h3>
         </Link>
         <div className="menuBox">
-          <Link to="/events" style={{ textDecoration: "none" }}>
+          <Link to="/signup" style={{ textDecoration: "none" }}>
             <h4 classname="signUp">Sign up</h4>
           </Link>
-          <Link to="/events" style={{ textDecoration: "none" }}>
+          <Link to="/login" style={{ textDecoration: "none" }}>
             <h4 classname="login">Login</h4>
           </Link>
         </div>
