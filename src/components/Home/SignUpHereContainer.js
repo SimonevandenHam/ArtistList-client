@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import "../../styles/home.css";
 
 class signUpHereContainer extends React.Component {
@@ -13,7 +15,9 @@ class signUpHereContainer extends React.Component {
             YOU'VE SEEN LIVE
           </h2>
           <div className="buttonContainer">
-            <button>Sign up here</button>
+            <Link to="/signup">
+              <button>Sign up here</button>
+            </Link>
           </div>
         </div>
       </div>
