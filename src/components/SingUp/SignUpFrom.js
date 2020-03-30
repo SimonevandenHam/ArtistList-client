@@ -12,7 +12,7 @@ export default class SignUpForm extends React.Component {
             required="required"
             name="email"
             placeholder="e-mail"
-            //value={this.props.value.email}
+            value={this.props.value.email}
           ></input>
           <h5>password</h5>
           <input
