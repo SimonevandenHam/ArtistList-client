@@ -13,9 +13,8 @@ class LoginFormContainer extends React.Component {
   };
 
   onChange = event => {
-    console.log(this.state);
     this.setState({
-      [event.target.email]: event.target.value
+      [event.target.name]: event.target.value
     });
   };
 

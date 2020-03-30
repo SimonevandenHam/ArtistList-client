@@ -12,7 +12,7 @@ export default class LoginForm extends React.Component {
             required="required"
             name="email"
             placeholder="e-mail"
-            value={this.props.value.email}
+            value={this.props.values.email}
           ></input>
           <h5>password</h5>
           <input
@@ -21,7 +21,7 @@ export default class LoginForm extends React.Component {
             required="required"
             name="password"
             placeholder="password"
-            value={this.props.value.password}
+            value={this.props.values.password}
           ></input>
 
           <button type="submit">Login</button>
