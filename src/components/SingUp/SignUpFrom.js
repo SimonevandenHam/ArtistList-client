@@ -11,7 +11,7 @@ export default class SignUpForm extends React.Component {
             type="text"
             name="email"
             placeholder="e-mail"
-            // value={this.props.values.email}
+            //value={this.props.value.email}
           ></input>
           <h5>password</h5>
           <input
@@ -19,7 +19,7 @@ export default class SignUpForm extends React.Component {
             type="text"
             name="password"
             placeholder="password"
-            //value={this.props.values.password}
+            value={this.props.value.password}
           ></input>
           <button type="submit">Sign up</button>
         </form>

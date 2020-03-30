@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import SignUpForm from "./SignUpFrom";
+import { createUser } from "../../store/signUp/action";
 
 export class SignUpFormContainer extends Component {
   state = {
@@ -11,7 +12,7 @@ export class SignUpFormContainer extends Component {
 
   onChange = event => {
     this.setState({
-      [event.target.email]: event.target.value
+      [event.target.name]: event.target.value
     });
   };
 
@@ -32,17 +33,10 @@ export class SignUpFormContainer extends Component {
       <SignUpForm
         onSubmit={this.onSubmit}
         onChange={this.onChange}
-        values={this.state}
+        value={this.state}
       />
     );
   }
 }
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SignUpFormContainer);
+export default connect(null, { createUser })(SignUpFormContainer);
