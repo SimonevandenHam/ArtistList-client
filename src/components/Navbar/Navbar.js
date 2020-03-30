@@ -11,10 +11,10 @@ export default class Navbar extends Component {
         </Link>
         <div className="menuBox">
           <Link to="/signup" style={{ textDecoration: "none" }}>
-            <h4 classname="signUp">Sign up</h4>
+            <h4 className="signUp">Sign up</h4>
           </Link>
           <Link to="/login" style={{ textDecoration: "none" }}>
-            <h4 classname="login">Login</h4>
+            <h4 className="login">Login</h4>
           </Link>
         </div>
       </div>
