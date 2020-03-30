@@ -38,6 +38,7 @@ export class SignUpFormContainer extends Component {
   };
 
   render() {
+    console.log("LOGIN", this.props);
     const errorMessage = this.state.error ? this.state.error : null;
     return (
       <div className="container">
@@ -54,4 +55,8 @@ export class SignUpFormContainer extends Component {
   }
 }
 
-export default connect(null, { createUser })(SignUpFormContainer);
+const mapStateToProps = state => ({
+  login: props.login
+});
+
+export default connect(mapStateToProps, { createUser })(SignUpFormContainer);
