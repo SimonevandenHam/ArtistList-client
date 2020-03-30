@@ -26,3 +26,8 @@
   display: flex;
   justify-content: center;
 }
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+}

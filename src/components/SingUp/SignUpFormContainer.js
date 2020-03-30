@@ -32,7 +32,7 @@ export class SignUpFormContainer extends Component {
       });
     } else {
       this.setState({
-        error: "password not equal"
+        error: "passwords not equal, please enter your password again"
       });
     }
   };
@@ -47,7 +47,7 @@ export class SignUpFormContainer extends Component {
             onChange={this.onChange}
             value={this.state}
           />{" "}
-          {errorMessage}
+          <div className="errorMessage">{errorMessage}</div>
         </div>
       </div>
     );
