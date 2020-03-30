@@ -9,6 +9,7 @@ export default class SignUpForm extends React.Component {
           <input
             onChange={this.props.onChange}
             type="text"
+            required="required"
             name="email"
             placeholder="e-mail"
             //value={this.props.value.email}
@@ -16,10 +17,19 @@ export default class SignUpForm extends React.Component {
           <h5>password</h5>
           <input
             onChange={this.props.onChange}
-            type="text"
+            type="password"
+            required="required"
             name="password"
             placeholder="password"
             value={this.props.value.password}
+          ></input>
+          <input
+            onChange={this.props.onChange}
+            type="password"
+            required="required"
+            name="password1"
+            placeholder="confirm password"
+            value={this.props.value.password1}
           ></input>
           <button type="submit">Sign up</button>
         </form>
