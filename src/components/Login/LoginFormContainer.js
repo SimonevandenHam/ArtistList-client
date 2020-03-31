@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 
 import LoginForm from "./LoginForm";
 import { userLogin } from "../../store/login/action";
-import SignUpHereContainer from "../Home/SignUpHereContainer";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };
