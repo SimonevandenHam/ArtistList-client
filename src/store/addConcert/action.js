@@ -15,8 +15,7 @@ export const searchArtistResult = artist => (dispatch, getState) => {
   request
     .get(`${baseUrl}/spotify/${artist}`)
     .then(response => {
-      console.log(response.body);
-      dispatch(searchArtist(response));
+      dispatch(searchArtist(response.body));
     })
     .catch(console.error);
 };
