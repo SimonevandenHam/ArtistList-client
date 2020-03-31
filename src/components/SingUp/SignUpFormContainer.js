@@ -40,8 +40,6 @@ export class SignUpFormContainer extends Component {
 
   render() {
     const errorMessage = this.state.error ? this.state.error : null;
-    console.log(this.props.signup);
-    console.log(this.state.signup);
     if (this.props.signup !== "") {
       return <Redirect to="/myartistlist" />;
     } else {
