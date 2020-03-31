@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import SignUpForm from "./SignUpFrom";
 import { createUser } from "../../store/signUp/action";
@@ -38,25 +39,30 @@ export class SignUpFormContainer extends Component {
   };
 
   render() {
-    console.log("LOGIN", this.props);
     const errorMessage = this.state.error ? this.state.error : null;
-    return (
-      <div className="container">
-        <div className="signUpHereContainer">
-          <SignUpForm
-            onSubmit={this.onSubmit}
-            onChange={this.onChange}
-            value={this.state}
-          />{" "}
-          <div className="errorMessage">{errorMessage}</div>
+    console.log(this.props.signup);
+    console.log(this.state.signup);
+    if (this.props.signup !== "") {
+      return <Redirect to="/myartistlist" />;
+    } else {
+      return (
+        <div className="container">
+          <div className="signUpHereContainer">
+            <SignUpForm
+              onSubmit={this.onSubmit}
+              onChange={this.onChange}
+              value={this.state}
+            />{" "}
+            <div className="errorMessage">{errorMessage}</div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  login: props.login
+  signup: state.signup
 });
 
 export default connect(mapStateToProps, { createUser })(SignUpFormContainer);
