@@ -1,13 +1,10 @@
 import React from "react";
 
-import AddArtistForm from "./AddArtistForm";
-
 export default class AddConcertInfoForm extends React.Component {
   render() {
     return (
       <div>
         <form onSubmit={this.props.onSubmit}>
-          <AddArtistForm />
           <input
             onChange={this.props.onChange}
             required="required"
@@ -41,7 +38,7 @@ export default class AddConcertInfoForm extends React.Component {
             value={this.props.values.password}
           ></input>
 
-          <button type="submit">Login</button>
+          <button type="submit">Add Concert</button>
         </form>
       </div>
     );
