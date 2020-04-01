@@ -58,9 +58,11 @@ function newConcert(payload) {
   };
 }
 
-export const addConcert = data => (dispatch, getState) => {
+export const addConcert = (data, jwt) => (dispatch, getState) => {
+  const token = getState();
   request
     .post(`${baseUrl}/concert`)
+    .set("Authorization", `Bearer ${jwt}`)
     .send(data)
     .then(response => {
       const action = newConcert(response.body);
