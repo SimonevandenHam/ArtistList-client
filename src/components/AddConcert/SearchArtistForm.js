@@ -14,7 +14,6 @@ class SearchArtistForm extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-
     this.props.searchArtistResult(this.state.artist);
   };
 
@@ -24,11 +23,26 @@ class SearchArtistForm extends React.Component {
     });
   };
 
+  //nog niks ingevoerd = please search
+  //al een artiest geselecteerd = add more artitsts
+  // niks terug? =can not find
+
   displayArtistSearchResult = () => {
-    if (this.props.artistSearchResults === null) {
-      return "please enter a artist";
-    } else if (this.props.artistSearchResults.length === 0) {
+    if (
+      this.props.artistSearchResults === null &&
+      this.props.selectedArtist.length === 0
+    ) {
+      return "please search an artist";
+    } else if (
+      this.props.artistSearchResults !== null &&
+      this.props.artistSearchResults.length === 0
+    ) {
       return "can not find this artist";
+    } else if (
+      this.props.selectedArtist.length > 0 &&
+      this.props.artistSearchResults === null
+    ) {
+      return "you can add more artists";
     } else {
       return (
         <div>
@@ -39,9 +53,9 @@ class SearchArtistForm extends React.Component {
             } else {
               availableImage = <img src="/media/artistPlaceholder.png" />;
             }
-            console.log(artist);
+            console.log("MY ARTIST ARRAY", artist);
             return (
-              <li key={artist.id}>
+              <ul key={artist.id}>
                 <p>{availableImage}</p>
                 <p>{artist.artist}</p>
                 <button
@@ -52,7 +66,7 @@ class SearchArtistForm extends React.Component {
                 >
                   add artist
                 </button>
-              </li>
+              </ul>
             );
           })}
         </div>
@@ -64,6 +78,17 @@ class SearchArtistForm extends React.Component {
     this.props.selectArtist(artist);
     this.props.clearSearchArtist();
     this.setState({ artist: "" });
+  };
+
+  displaySelectedArtist = () => {
+    return this.props.selectedArtist.map(artist => {
+      return (
+        <ul>
+          <p>selected artist: </p>
+          <p>{artist.artist}</p>
+        </ul>
+      );
+    });
   };
 
   render() {
@@ -83,6 +108,7 @@ class SearchArtistForm extends React.Component {
           <button type="submit">search for artist</button>
         </form>
         {this.displayArtistSearchResult()}
+        <p>{this.displaySelectedArtist()}</p>
       </div>
     );
   }
