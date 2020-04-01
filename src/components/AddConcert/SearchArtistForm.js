@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { searchArtistResult } from "../../store/addConcert/action";
+import {
+  searchArtistResult,
+  selectArtist,
+  clearSearchArtist
+} from "../../store/addConcert/action";
 
 class SearchArtistForm extends React.Component {
   state = {
@@ -10,7 +14,7 @@ class SearchArtistForm extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log("ARTIST STATE", this.state);
+
     this.props.searchArtistResult(this.state.artist);
   };
 
@@ -21,11 +25,10 @@ class SearchArtistForm extends React.Component {
   };
 
   displayArtistSearchResult = () => {
-    console.log("SEARCH RESULTTT", this.props.artistSearchResults);
     if (this.props.artistSearchResults === null) {
-      return "can not find this artist";
-    } else if (this.props.artistSearchResults.length === 0) {
       return "please enter a artist";
+    } else if (this.props.artistSearchResults.length === 0) {
+      return "can not find this artist";
     } else {
       return (
         <div>
@@ -41,7 +44,14 @@ class SearchArtistForm extends React.Component {
               <li key={artist.id}>
                 <p>{availableImage}</p>
                 <p>{artist.name}</p>
-                <button>add artist</button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    this.saveArtistToStore(artist);
+                  }}
+                >
+                  add artist
+                </button>
               </li>
             );
           })}
@@ -50,13 +60,14 @@ class SearchArtistForm extends React.Component {
     }
   };
 
-  render() {
-    //1 hier checken of artistSearchResults leeg is of al een array met resultaten is
-    //2. zo ja, verander die array met behulp van map in divs met daarin plaatjes + artiest naam + button
-    //3. zo nee, zorg dat die variabele een null waarde heeft
-    //4. laat die variable in de return onder het formulier zien
-    console.log("ARTISTSSS", this.props.artistSearchResults);
+  saveArtistToStore = artist => {
+    this.props.selectArtist(artist);
+    this.props.clearSearchArtist();
+    this.setState({ artist: "" });
+  };
 
+  render() {
+    console.log(this.props.selectedArtist);
     return (
       <div>
         <form onSubmit={this.onSubmit}>
@@ -79,9 +90,12 @@ class SearchArtistForm extends React.Component {
 
 //get information from the store
 const mapStateToProps = state => ({
-  artistSearchResults: state.artistSearchResults
+  artistSearchResults: state.artistSearchResults.artistSearchResult,
+  selectedArtist: state.artistSearchResults.selectedArtist
 });
 
-export default connect(mapStateToProps, { searchArtistResult })(
-  SearchArtistForm
-);
+export default connect(mapStateToProps, {
+  searchArtistResult,
+  selectArtist,
+  clearSearchArtist
+})(SearchArtistForm);

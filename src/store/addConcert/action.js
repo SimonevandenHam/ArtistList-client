@@ -19,3 +19,31 @@ export const searchArtistResult = artist => (dispatch, getState) => {
     })
     .catch(console.error);
 };
+
+//save slected artist
+export const SELECT_ARTIST = "SELECT_ARTIST";
+
+function selectedArtist(payload) {
+  return {
+    type: SELECT_ARTIST,
+    payload
+  };
+}
+
+export const selectArtist = artist => (dispatch, getState) => {
+  dispatch(selectedArtist(artist));
+};
+
+//clear search result
+export const CLEAR_SEARCHRESULT = "CLEAR_SEARCHRESULT";
+
+function clearedSearchResult(payload) {
+  return {
+    type: CLEAR_SEARCHRESULT,
+    payload
+  };
+}
+
+export const clearSearchArtist = () => (dispatch, getState) => {
+  dispatch(clearedSearchResult());
+};
