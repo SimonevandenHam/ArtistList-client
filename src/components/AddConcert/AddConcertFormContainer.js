@@ -7,25 +7,6 @@ import SearchArtistForm from "./SearchArtistForm";
 import { userLogin } from "../../store/login/action";
 
 class AddConcertFormContainer extends React.Component {
-  state = {
-    artist: "",
-    startDate: "",
-    endDate: "",
-    venue: "",
-    location: ""
-  };
-
-  onSubmit = event => {
-    event.preventDefault();
-    console.log(this.state);
-  };
-
-  onChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-
   render() {
     // console.log("LOGIN?", this.props.login);
     // if (this.props.login !== "") {
@@ -34,11 +15,7 @@ class AddConcertFormContainer extends React.Component {
     return (
       <div>
         <SearchArtistForm />
-        <AddConcertInfoForm
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          values={this.state}
-        />
+        <AddConcertInfoForm />
       </div>
     );
   }
