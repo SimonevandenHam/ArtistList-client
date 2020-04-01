@@ -1,17 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { addConcert } from "../../store/addConcert/action";
+
 class AddConcertFormContainer extends React.Component {
   state = {
-    startDate: "",
-    endDate: "",
+    date: "",
+    endDate: null,
     venue: "",
     location: ""
   };
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+
+    const concertInformation = {
+      concert: this.state,
+      artist: this.props.selectedArtist
+    };
+    console.log("concertinfo", concertInformation);
+    this.props.addConcert(concertInformation);
+    this.setState({
+      date: "",
+      endDate: null,
+      venue: "",
+      location: ""
+    });
   };
 
   onChange = event => {
@@ -29,10 +43,11 @@ class AddConcertFormContainer extends React.Component {
             onChange={this.onChange}
             required="required"
             type="date"
-            name="startDate"
+            name="date"
             placeholder="YYYY-MM-DD"
-            value={this.state.startDate}
+            value={this.state.date}
           ></input>
+
           <h5>end date</h5>
           <input
             onChange={this.onChange}
@@ -41,6 +56,7 @@ class AddConcertFormContainer extends React.Component {
             placeholder="YYYY-MM-DD"
             value={this.state.endDate}
           ></input>
+
           <h5>venue</h5>
           <input
             onChange={this.onChange}
@@ -50,6 +66,7 @@ class AddConcertFormContainer extends React.Component {
             placeholder="Venue"
             value={this.state.email}
           ></input>
+
           <h5>location</h5>
           <input
             onChange={this.onChange}
@@ -67,4 +84,10 @@ class AddConcertFormContainer extends React.Component {
   }
 }
 
-export default connect(null)(AddConcertFormContainer);
+const mapStateToProps = state => ({
+  selectedArtist: state.artistSearchResults.selectedArtist
+});
+
+export default connect(mapStateToProps, { addConcert })(
+  AddConcertFormContainer
+);

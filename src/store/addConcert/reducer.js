@@ -1,9 +1,13 @@
-import { SEARCH_ARTIST, SELECT_ARTIST, CLEAR_SEARCHRESULT } from "./action";
+import {
+  SEARCH_ARTIST,
+  SELECT_ARTIST,
+  CLEAR_SEARCHRESULT,
+  NEW_CONCERT_INFORMATION
+} from "./action";
 
 const initialState = {
   artistSearchResult: null,
-  selectedArtist: [],
- 
+  selectedArtist: []
 };
 
 export default function(state = initialState, action = {}) {
@@ -22,8 +26,9 @@ export default function(state = initialState, action = {}) {
       return {
         ...state,
         artistSearchResult: null
-
-      }
+      };
+    case NEW_CONCERT_INFORMATION:
+      return state;
     default:
       return state;
   }

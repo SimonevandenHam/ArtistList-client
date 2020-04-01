@@ -47,3 +47,24 @@ function clearedSearchResult(payload) {
 export const clearSearchArtist = () => (dispatch, getState) => {
   dispatch(clearedSearchResult());
 };
+
+//post concert information
+export const NEW_CONCERT_INFORMATION = "NEW_CONCERT_INFORMATION";
+
+function newConcert(payload) {
+  return {
+    type: NEW_CONCERT_INFORMATION,
+    payload
+  };
+}
+
+export const addConcert = data => (dispatch, getState) => {
+  request
+    .post(`${baseUrl}/concert`)
+    .send(data)
+    .then(response => {
+      const action = newConcert(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
+};

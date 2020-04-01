@@ -34,8 +34,8 @@ class SearchArtistForm extends React.Component {
         <div>
           {this.props.artistSearchResults.map(artist => {
             let availableImage = null;
-            if (artist.images.length > 0) {
-              availableImage = <img src={artist.images[2].url} />;
+            if (artist.picture.length > 0) {
+              availableImage = <img src={artist.picture[2].url} />;
             } else {
               availableImage = <img src="/media/artistPlaceholder.png" />;
             }
@@ -43,7 +43,7 @@ class SearchArtistForm extends React.Component {
             return (
               <li key={artist.id}>
                 <p>{availableImage}</p>
-                <p>{artist.name}</p>
+                <p>{artist.artist}</p>
                 <button
                   type="button"
                   onClick={() => {
