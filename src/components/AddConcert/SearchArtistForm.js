@@ -23,10 +23,6 @@ class SearchArtistForm extends React.Component {
     });
   };
 
-  //nog niks ingevoerd = please search
-  //al een artiest geselecteerd = add more artitsts
-  // niks terug? =can not find
-
   displayArtistSearchResult = () => {
     if (
       this.props.artistSearchResults === null &&
