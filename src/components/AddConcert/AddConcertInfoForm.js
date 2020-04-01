@@ -19,7 +19,8 @@ class AddConcertFormContainer extends React.Component {
       artist: this.props.selectedArtist
     };
     console.log("concertinfo", concertInformation);
-    this.props.addConcert(concertInformation);
+    console.log("what is lofin?", this.props.login);
+    this.props.addConcert(concertInformation, this.props.login);
     this.setState({
       date: "",
       endDate: null,
@@ -85,7 +86,8 @@ class AddConcertFormContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  selectedArtist: state.artistSearchResults.selectedArtist
+  selectedArtist: state.artistSearchResults.selectedArtist,
+  login: state.login
 });
 
 export default connect(mapStateToProps, { addConcert })(

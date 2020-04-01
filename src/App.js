@@ -22,7 +22,7 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignUpFormContainer} />
           <Route exact path="/login" component={LoginFormContainer} />
           <Route exact path="/myartistlist" component={ArtistListContainer} />
-          <Route exact path="/addartist" component={AddConcertFormContainer} />
+          <Route exact path="/addconcert" component={AddConcertFormContainer} />
         </div>
       </div>
     );
