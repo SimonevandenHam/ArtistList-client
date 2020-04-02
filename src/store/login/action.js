@@ -17,9 +17,23 @@ export const userLogin = (email, password) => (dispatch, getState) => {
     .send({ email, password })
     .then(response => {
       sessionStorage.setItem("jwtToken", response.body.jwt);
-      console.log(response.body);
       const action = login(response.body.jwt);
       dispatch(action);
     })
     .catch(console.error);
+};
+
+export const LOGOUT = "LOGOUT";
+
+function logout(payload) {
+  return {
+    type: LOGOUT,
+    payload
+  };
+}
+
+export const userLogout = () => (dispatch, getState) => {
+  sessionStorage.removeItem("jwtToken");
+  const action = logout(null);
+  dispatch(action);
 };
