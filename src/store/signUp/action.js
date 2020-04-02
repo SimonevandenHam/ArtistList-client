@@ -12,7 +12,6 @@ function newUser(payload) {
 }
 
 export const createUser = data => (dispatch, getState) => {
-  const state = getState();
   request
     .post(`${baseUrl}/user`)
     .send(data)
