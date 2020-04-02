@@ -9,7 +9,7 @@ import {
 
 class SearchArtistForm extends React.Component {
   state = {
-    artist: null
+    artist: ""
   };
 
   onSubmit = event => {
@@ -45,9 +45,14 @@ class SearchArtistForm extends React.Component {
           {this.props.artistSearchResults.map(artist => {
             let availableImage = null;
             if (artist.picture.length > 0) {
-              availableImage = <img src={artist.picture[2].url} />;
+              availableImage = <img src={artist.picture[2].url} alt="artist" />;
             } else {
-              availableImage = <img src="/media/artistPlaceholder.png" />;
+              availableImage = (
+                <img
+                  src="/media/artistPlaceholder.png"
+                  alt="placeholder artist"
+                />
+              );
             }
 
             return (
