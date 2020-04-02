@@ -49,7 +49,7 @@ class SearchArtistForm extends React.Component {
             } else {
               availableImage = <img src="/media/artistPlaceholder.png" />;
             }
-            console.log("MY ARTIST ARRAY", artist);
+
             return (
               <ul key={artist.id}>
                 <p>{availableImage}</p>
@@ -80,7 +80,6 @@ class SearchArtistForm extends React.Component {
     return this.props.selectedArtist.map(artist => {
       return (
         <ul>
-          <p>selected artist: </p>
           <p>{artist.artist}</p>
         </ul>
       );
@@ -103,8 +102,9 @@ class SearchArtistForm extends React.Component {
 
           <button type="submit">search for artist</button>
         </form>
-        {this.displayArtistSearchResult()}
-        <p>{this.displaySelectedArtist()}</p>
+        <p>{this.displayArtistSearchResult()}</p>
+        {this.props.selectedArtist.length > 0 ? "selected artists" : null}
+        {this.displaySelectedArtist()}
       </div>
     );
   }
