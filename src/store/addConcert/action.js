@@ -34,6 +34,20 @@ export const selectArtist = artist => (dispatch, getState) => {
   dispatch(selectedArtist(artist));
 };
 
+//clear selected artist
+export const CLEAR_SELECTED_ARTIST = "CLEAR_SELECTED_ARTIST";
+
+function clearArtist(payload) {
+  return {
+    type: CLEAR_SELECTED_ARTIST,
+    payload
+  };
+}
+
+export const clearSelectedArtist = () => (dispatch, getState) => {
+  dispatch(clearArtist());
+};
+
 //clear search result
 export const CLEAR_SEARCHRESULT = "CLEAR_SEARCHRESULT";
 

@@ -1,6 +1,7 @@
 import {
   SEARCH_ARTIST,
   SELECT_ARTIST,
+  CLEAR_SELECTED_ARTIST,
   CLEAR_SEARCHRESULT,
   NEW_CONCERT_INFORMATION
 } from "./action";
@@ -22,6 +23,8 @@ export default function(state = initialState, action = {}) {
         ...state,
         selectedArtist: [...state.selectedArtist, action.payload]
       };
+    case CLEAR_SELECTED_ARTIST:
+      return { ...state, selectedArtist: [] };
     case CLEAR_SEARCHRESULT:
       return {
         ...state,
