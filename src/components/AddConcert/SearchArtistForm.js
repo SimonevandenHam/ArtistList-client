@@ -54,7 +54,6 @@ class SearchArtistForm extends React.Component {
                 />
               );
             }
-
             return (
               <ul key={index}>
                 <p>{availableImage}</p>
@@ -86,9 +85,25 @@ class SearchArtistForm extends React.Component {
       return (
         <ul key="index">
           <p>{artist.artist}</p>
+
+          <button
+            type="button"
+            onClick={() => {
+              this.deleteArtist(artist);
+            }}
+          >
+            delete artist
+          </button>
         </ul>
       );
     });
+  };
+
+  deleteArtist = artist => {
+    let newArtistArray = this.props.selectedArtist.filter(function(a) {
+      return a.spotifyArtistId !== artist.spotifyArtistId;
+    });
+    console.log(newArtistArray);
   };
 
   render() {
