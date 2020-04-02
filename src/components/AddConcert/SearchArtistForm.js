@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {
   searchArtistResult,
   selectArtist,
-  clearSearchArtist
+  clearSearchArtist,
+  updateSelectedArtistArray
 } from "../../store/addConcert/action";
 
 class SearchArtistForm extends React.Component {
@@ -103,7 +104,7 @@ class SearchArtistForm extends React.Component {
     let newArtistArray = this.props.selectedArtist.filter(function(a) {
       return a.spotifyArtistId !== artist.spotifyArtistId;
     });
-    console.log(newArtistArray);
+    this.props.updateSelectedArtistArray(newArtistArray);
   };
 
   render() {
@@ -138,5 +139,6 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   searchArtistResult,
   selectArtist,
-  clearSearchArtist
+  clearSearchArtist,
+  updateSelectedArtistArray
 })(SearchArtistForm);
