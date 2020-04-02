@@ -3,7 +3,8 @@ import {
   SELECT_ARTIST,
   CLEAR_SELECTED_ARTIST,
   CLEAR_SEARCHRESULT,
-  NEW_CONCERT_INFORMATION
+  NEW_CONCERT_INFORMATION,
+  UPDATE_SELECTED_ARTIST
 } from "./action";
 
 const initialState = {
@@ -30,6 +31,8 @@ export default function(state = initialState, action = {}) {
         ...state,
         artistSearchResult: null
       };
+    case UPDATE_SELECTED_ARTIST:
+      return { ...state, selectedArtist: action.payload };
     case NEW_CONCERT_INFORMATION:
       return state;
     default:

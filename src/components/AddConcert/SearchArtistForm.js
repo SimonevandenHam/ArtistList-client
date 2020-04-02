@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {
   searchArtistResult,
   selectArtist,
-  clearSearchArtist
+  clearSearchArtist,
+  updateSelectedArtistArray
 } from "../../store/addConcert/action";
 
 class SearchArtistForm extends React.Component {
@@ -54,7 +55,6 @@ class SearchArtistForm extends React.Component {
                 />
               );
             }
-
             return (
               <ul key={index}>
                 <p>{availableImage}</p>
@@ -86,9 +86,25 @@ class SearchArtistForm extends React.Component {
       return (
         <ul key="index">
           <p>{artist.artist}</p>
+
+          <button
+            type="button"
+            onClick={() => {
+              this.deleteArtist(artist);
+            }}
+          >
+            delete artist
+          </button>
         </ul>
       );
     });
+  };
+
+  deleteArtist = artist => {
+    let newArtistArray = this.props.selectedArtist.filter(function(a) {
+      return a.spotifyArtistId !== artist.spotifyArtistId;
+    });
+    this.props.updateSelectedArtistArray(newArtistArray);
   };
 
   render() {
@@ -123,5 +139,6 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   searchArtistResult,
   selectArtist,
-  clearSearchArtist
+  clearSearchArtist,
+  updateSelectedArtistArray
 })(SearchArtistForm);

@@ -62,6 +62,23 @@ export const clearSearchArtist = () => (dispatch, getState) => {
   dispatch(clearedSearchResult());
 };
 
+//delete artist from selected artists
+export const UPDATE_SELECTED_ARTIST = "UPDATE_SELECTED_ARTIST";
+
+function updateArray(payload) {
+  return {
+    type: UPDATE_SELECTED_ARTIST,
+    payload
+  };
+}
+
+export const updateSelectedArtistArray = artistArray => (
+  dispatch,
+  getState
+) => {
+  dispatch(updateArray(artistArray));
+};
+
 //post concert information
 export const NEW_CONCERT_INFORMATION = "NEW_CONCERT_INFORMATION";
 
