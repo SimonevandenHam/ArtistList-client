@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addConcert } from "../../store/addConcert/action";
+import { addConcert, clearSelectedArtist } from "../../store/addConcert/action";
 
 class AddConcertFormContainer extends React.Component {
   state = {
@@ -18,8 +18,6 @@ class AddConcertFormContainer extends React.Component {
       concert: this.state,
       artist: this.props.selectedArtist
     };
-    console.log("concertinfo", concertInformation);
-    console.log("what is lofin?", this.props.login);
     this.props.addConcert(concertInformation, this.props.login);
     this.setState({
       date: "",
@@ -27,6 +25,7 @@ class AddConcertFormContainer extends React.Component {
       venue: "",
       location: ""
     });
+    this.props.clearSelectedArtist();
   };
 
   onChange = event => {
@@ -90,6 +89,6 @@ const mapStateToProps = state => ({
   login: state.login
 });
 
-export default connect(mapStateToProps, { addConcert })(
+export default connect(mapStateToProps, { addConcert, clearSelectedArtist })(
   AddConcertFormContainer
 );
