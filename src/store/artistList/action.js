@@ -2,19 +2,23 @@ import request from "superagent";
 
 const baseUrl = "http://localhost:4000";
 
-export const ALL_EVENTS_OF_USER = "ALL_EVENTS_OF_USER";
+export const ALL_CONCERT_OF_USER = "ALL_CONCERT_OF_USER";
 
-const getEvents = event => ({
-  type: ALL_EVENTS_OF_USER,
-  payload: event
-});
+function getConcert(payload) {
+  return {
+    type: ALL_CONCERT_OF_USER,
+    payload
+  };
+}
 
-export const getAllUserEvents = userId => dispatch => {
+export const getAllUserConcerts = jwt => (dispatch, getState) => {
   request
-    .get(`${baseUrl}/concerts/${userId}`)
+    .get(`${baseUrl}/concerts`)
+    .set("Authorization", `Bearer ${jwt}`)
     .then(response => {
+      const action = getConcert(response.body);
       console.log(response.body);
-      dispatch(getEvents(response.body));
+      dispatch(action);
     })
     .catch(console.error);
 };

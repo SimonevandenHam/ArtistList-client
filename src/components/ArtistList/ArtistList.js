@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { getAllUserEvents } from "../../store/artistList/action";
+import { getAllUserConcerts } from "../../store/artistList/action";
+
+//console.log(this.props.getAllUserConcerts(this.props.login));
 
 export class ArtistList extends Component {
   render() {
@@ -9,6 +11,9 @@ export class ArtistList extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  artistList: state.artistList,
+  login: state.login
+});
 
-export default connect(mapStateToProps, { getAllUserEvents })(ArtistList);
+export default connect(mapStateToProps, { getAllUserConcerts })(ArtistList);
