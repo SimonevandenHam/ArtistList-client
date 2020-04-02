@@ -42,7 +42,7 @@ class SearchArtistForm extends React.Component {
     } else {
       return (
         <div>
-          {this.props.artistSearchResults.map(artist => {
+          {this.props.artistSearchResults.map((artist, index) => {
             let availableImage = null;
             if (artist.picture.length > 0) {
               availableImage = <img src={artist.picture[2].url} alt="artist" />;
@@ -56,7 +56,7 @@ class SearchArtistForm extends React.Component {
             }
 
             return (
-              <ul key={artist.id}>
+              <ul key={index}>
                 <p>{availableImage}</p>
                 <p>{artist.artist}</p>
                 <button
@@ -82,9 +82,9 @@ class SearchArtistForm extends React.Component {
   };
 
   displaySelectedArtist = () => {
-    return this.props.selectedArtist.map(artist => {
+    return this.props.selectedArtist.map((artist, index) => {
       return (
-        <ul>
+        <ul key="index">
           <p>{artist.artist}</p>
         </ul>
       );
@@ -92,7 +92,6 @@ class SearchArtistForm extends React.Component {
   };
 
   render() {
-    console.log(this.props.selectedArtist);
     return (
       <div>
         <form onSubmit={this.onSubmit}>
@@ -107,7 +106,7 @@ class SearchArtistForm extends React.Component {
 
           <button type="submit">search for artist</button>
         </form>
-        <p>{this.displayArtistSearchResult()}</p>
+        <div>{this.displayArtistSearchResult()}</div>
         {this.props.selectedArtist.length > 0 ? "selected artists" : null}
         {this.displaySelectedArtist()}
       </div>
