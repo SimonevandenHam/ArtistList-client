@@ -15,13 +15,13 @@ class Navbar extends Component {
           </Link>
           <div className="menuBox">
             <Link to="/myartistlist">
-              <h4 classname="myArtistList">My Artist List</h4>
+              <h4 className="myArtistList">My Artist List</h4>
             </Link>
             <Link to="/addconcert">
-              <h4 classname="addConcert">Add Concert</h4>
+              <h4 className="addConcert">Add Concert</h4>
             </Link>
             <Link onClick={this.props.userLogout} to="/">
-              <h4 classname="logout">Logout</h4>
+              <h4 className="logout">Logout</h4>
             </Link>
           </div>
         </div>

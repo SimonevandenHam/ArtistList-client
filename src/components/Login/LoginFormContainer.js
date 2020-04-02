@@ -10,7 +10,6 @@ class LoginFormContainer extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     this.props.userLogin(this.state.email, this.state.password);
   };
 
@@ -21,7 +20,6 @@ class LoginFormContainer extends React.Component {
   };
 
   render() {
-    console.log("LOGIN?", this.props.login);
     if (this.props.login !== null) {
       return <Redirect to="/addconcert" />;
     } else {

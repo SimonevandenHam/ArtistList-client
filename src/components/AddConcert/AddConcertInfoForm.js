@@ -6,7 +6,7 @@ import { addConcert, clearSelectedArtist } from "../../store/addConcert/action";
 class AddConcertFormContainer extends React.Component {
   state = {
     date: "",
-    endDate: null,
+    endDate: "",
     venue: "",
     location: ""
   };
@@ -21,7 +21,7 @@ class AddConcertFormContainer extends React.Component {
     this.props.addConcert(concertInformation, this.props.login);
     this.setState({
       date: "",
-      endDate: null,
+      endDate: "",
       venue: "",
       location: ""
     });

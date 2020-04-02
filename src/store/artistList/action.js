@@ -17,7 +17,6 @@ export const getAllUserConcerts = jwt => (dispatch, getState) => {
     .set("Authorization", `Bearer ${jwt}`)
     .then(response => {
       const action = getConcert(response.body);
-      console.log("response body", response.body);
       dispatch(action);
     })
     .catch(console.error);

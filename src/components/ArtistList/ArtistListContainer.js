@@ -11,9 +11,9 @@ export class ArtistListContainer extends Component {
   showConcerts = () => {
     return this.props.artistList.map(concert => {
       return (
-        <div>
+        <div key={concert.id}>
           {concert.artists.map(artist => {
-            return <p> {artist.artist} </p>;
+            return <p key={artist.id}> {artist.artist} </p>;
           })}
           <p>{concert.date}</p>
           <p>{concert.venue}</p>
