@@ -8,33 +8,24 @@ export class ArtistListContainer extends Component {
     this.props.getAllUserConcerts(this.props.login);
   }
 
+  showConcerts = () => {
+    return this.props.artistList.map(concert => {
+      return (
+        <div>
+          {concert.artists.map(artist => {
+            return <p> {artist.artist} </p>;
+          })}
+          <p>{concert.date}</p>
+          <p>{concert.venue}</p>
+          <p>{concert.location}</p>
+          <hr />
+        </div>
+      );
+    });
+  };
+
   render() {
-    const concertInformation = {
-      concert: this.props.artistList,
-      artist: this.props.selectedArtist
-    };
-
-    console.log("concertinfo", concertInformation);
-
-    const showConcerts = () => {
-      console.log("artistlist", this.props.artistList);
-      return this.props.artistList.map(concert => {
-        return (
-          <div>
-            <p>{concert.date}</p>
-            <p>{concert.venue}</p>
-            <p>{concert.location}</p>
-          </div>
-        );
-      });
-    };
-    console.log(this.props.getAllUserConcerts());
-    return (
-      <div>
-        {showConcerts()}
-        hiiiiii
-      </div>
-    );
+    return <div>{this.showConcerts()}</div>;
   }
 }
 
