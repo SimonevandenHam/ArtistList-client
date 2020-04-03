@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import LoginForm from "./LoginForm";
 import { userLogin } from "../../store/login/action";
+//import "../../styles/home.css";
 
 class LoginFormContainer extends React.Component {
   state = { email: "", password: "" };
@@ -24,11 +25,15 @@ class LoginFormContainer extends React.Component {
       return <Redirect to="/addconcert" />;
     } else {
       return (
-        <LoginForm
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          values={this.state}
-        />
+        <div className="container">
+          <div className="signUpHereContainer">
+            <LoginForm
+              onSubmit={this.onSubmit}
+              onChange={this.onChange}
+              values={this.state}
+            />
+          </div>
+        </div>
       );
     }
   }
