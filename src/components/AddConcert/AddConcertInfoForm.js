@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { TextField, Button } from "@material-ui/core";
 
 import { addConcert, clearSelectedArtist } from "../../store/addConcert/action";
 
@@ -38,46 +39,56 @@ class AddConcertFormContainer extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <h5>starte date</h5>
-          <input
-            onChange={this.onChange}
-            required="required"
-            type="date"
-            name="date"
-            placeholder="YYYY-MM-DD"
-            value={this.state.date}
-          ></input>
-
-          <h5>end date</h5>
-          <input
-            onChange={this.onChange}
-            type="date"
-            name="endDate"
-            placeholder="YYYY-MM-DD"
-            value={this.state.endDate}
-          ></input>
-
-          <h5>venue</h5>
-          <input
-            onChange={this.onChange}
-            type="text"
-            required="required"
-            name="venue"
-            placeholder="Venue"
-            value={this.state.email}
-          ></input>
-
-          <h5>location</h5>
-          <input
-            onChange={this.onChange}
-            type="test"
-            required="required"
-            name="location"
-            placeholder="Location"
-            value={this.state.password}
-          ></input>
-
-          <button type="submit">Add Concert</button>
+          <p>
+            <TextField
+              onChange={this.onChange}
+              label="start date"
+              required="required"
+              format="yyyy/MM/dd"
+              type="date"
+              name="date"
+              InputLabelProps={{
+                shrink: true
+              }}
+              value={this.state.date}
+            />
+          </p>
+          <p>
+            <TextField
+              onChange={this.onChange}
+              label="end date"
+              type="date"
+              name="endDate"
+              format="yyyy/MM/dd"
+              InputLabelProps={{
+                shrink: true
+              }}
+              value={this.state.endDate}
+            />
+          </p>
+          <p>
+            <TextField
+              onChange={this.onChange}
+              label="Venue"
+              type="text"
+              required="required"
+              name="venue"
+              placeholder="Venue"
+              value={this.state.email}
+            ></TextField>
+          </p>
+          <p>
+            <TextField
+              onChange={this.onChange}
+              label="Location"
+              type="test"
+              required="required"
+              name="location"
+              placeholder="Location"
+              value={this.state.password}
+            ></TextField>
+          </p>
+          <Button type="submit">Add Concert</Button>
         </form>
       </div>
     );

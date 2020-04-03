@@ -1,5 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { TextField, Button } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import AddIcon from "@material-ui/icons/Add";
+import SearchIcon from "@material-ui/icons/Search";
 
 import {
   searchArtistResult,
@@ -29,45 +33,69 @@ class SearchArtistForm extends React.Component {
       this.props.artistSearchResults === null &&
       this.props.selectedArtist.length === 0
     ) {
-      return "please search an artist";
+      return <h6>please search an artist</h6>;
     } else if (
       this.props.artistSearchResults !== null &&
       this.props.artistSearchResults.length === 0
     ) {
-      return "can not find this artist";
+      return <h6>can not find this artist</h6>;
     } else if (
       this.props.selectedArtist.length > 0 &&
       this.props.artistSearchResults === null
     ) {
-      return "you can add more artists";
+      return <h6>you can add more artists</h6>;
     } else {
       return (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around"
+          }}
+        >
           {this.props.artistSearchResults.map((artist, index) => {
             let availableImage = null;
+            const imgStyle = { width: 75, height: 75 };
             if (artist.picture.length > 0) {
-              availableImage = <img src={artist.picture[2].url} alt="artist" />;
+              availableImage = (
+                <img
+                  src={artist.picture[2].url}
+                  alt="artist"
+                  style={imgStyle}
+                />
+              );
             } else {
               availableImage = (
                 <img
                   src="/media/artistPlaceholder.png"
                   alt="placeholder artist"
+                  style={imgStyle}
                 />
               );
             }
             return (
-              <ul key={index}>
+              <div
+                key={index}
+                style={{
+                  width: 75,
+                  marginLeft: 10,
+                  marginRight: 10,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column"
+                }}
+              >
                 <p>{availableImage}</p>
-                <p>{artist.artist}</p>
-                <button
+                <p style={{ fontSize: 12 }}>{artist.artist}</p>
+                <Button
                   type="button"
                   onClick={() => {
                     this.saveArtistToStore(artist);
                   }}
                 >
-                  add artist
-                </button>
-              </ul>
+                  <AddIcon />
+                </Button>
+              </div>
             );
           })}
         </div>
@@ -86,15 +114,15 @@ class SearchArtistForm extends React.Component {
       return (
         <ul key="index">
           <p>{artist.artist}</p>
-
-          <button
+          <Button
+            aria-label="delete"
             type="button"
             onClick={() => {
               this.deleteArtist(artist);
             }}
           >
-            delete artist
-          </button>
+            <DeleteIcon fontSize="medium" />
+          </Button>
         </ul>
       );
     });
@@ -111,16 +139,19 @@ class SearchArtistForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <input
+          <TextField
             onChange={this.onChange}
             type="text"
             required="required"
             name="artist"
             placeholder="Artist"
+            style={{ width: "110px" }}
             value={this.state.artist}
-          ></input>
+          ></TextField>
 
-          <button type="submit">search for artist</button>
+          <Button type="submit">
+            <SearchIcon />
+          </Button>
         </form>
         <div>{this.displayArtistSearchResult()}</div>
         {this.props.selectedArtist.length > 0 ? "selected artists" : null}
