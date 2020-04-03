@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 
 import SignUpForm from "./SignUpFrom";
 import { createUser } from "../../store/signUp/action";
-import "../../styles/home.css";
 
 export class SignUpFormContainer extends Component {
   state = {
@@ -44,15 +43,13 @@ export class SignUpFormContainer extends Component {
       return <Redirect to="/myartistlist" />;
     } else {
       return (
-        <div className="container">
-          <div className="signUpHereContainer">
-            <SignUpForm
-              onSubmit={this.onSubmit}
-              onChange={this.onChange}
-              value={this.state}
-            />{" "}
-            <div className="errorMessage">{errorMessage}</div>
-          </div>
+        <div>
+          <SignUpForm
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            value={this.state}
+          />{" "}
+          <div className="errorMessage">{errorMessage}</div>
         </div>
       );
     }

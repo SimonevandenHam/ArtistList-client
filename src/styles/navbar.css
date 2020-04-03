@@ -1,9 +1,7 @@
 .navbar {
   display: flex;
-  text-decoration: none;
   flex-direction: row;
   justify-content: space-between;
-  background-color: bisque;
   width: calc(100%-20px);
   padding: 10px;
 }
@@ -11,6 +9,6 @@
 .menuBox {
   display: flex;
   flex-direction: row;
-  width: 40%;
+  width: auto;
   justify-content: space-between;
 }

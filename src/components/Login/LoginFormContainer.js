@@ -24,11 +24,13 @@ class LoginFormContainer extends React.Component {
       return <Redirect to="/addconcert" />;
     } else {
       return (
-        <LoginForm
-          onSubmit={this.onSubmit}
-          onChange={this.onChange}
-          values={this.state}
-        />
+        <div>
+          <LoginForm
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            values={this.state}
+          />
+        </div>
       );
     }
   }

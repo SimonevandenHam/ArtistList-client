@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 import "../../styles/home.css";
 
@@ -15,9 +16,15 @@ class signUpHereContainer extends React.Component {
             YOU'VE SEEN LIVE
           </h2>
           <div className="buttonContainer">
-            <Link to="/signup">
-              <button>Sign up here</button>
-            </Link>
+            <Button
+              color="primary"
+              variant="contained"
+              component={Link}
+              raised
+              to="/signup"
+            >
+              Sign up here
+            </Button>
           </div>
         </div>
       </div>
