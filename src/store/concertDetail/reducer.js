@@ -1,4 +1,4 @@
-import { GET_CONCERT_DETAIL } from ".action";
+import { GET_CONCERT_DETAIL } from "./action";
 
 export default function(state = [], action = {}) {
   switch (action.type) {
