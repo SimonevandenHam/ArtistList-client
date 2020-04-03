@@ -9,6 +9,6 @@
 .menuBox {
   display: flex;
   flex-direction: row;
-  width: 20%;
+  width: auto;
   justify-content: space-between;
 }

@@ -88,7 +88,9 @@ class AddConcertFormContainer extends React.Component {
               value={this.state.password}
             ></TextField>
           </p>
-          <Button type="submit">Add Concert</Button>
+          <Button type="submit" variant="contained" color="primary">
+            Add Concert
+          </Button>
         </form>
       </div>
     );

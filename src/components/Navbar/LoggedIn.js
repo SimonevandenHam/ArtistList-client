@@ -10,19 +10,24 @@ class LoggedIn extends Component {
   render() {
     return (
       <AppBar position="static">
-        <Toolbar className="navbar">
+        <Toolbar className="navbar" color="bisque">
           <Button variant="h6" component={Link} raised to="/">
             ArtistList
           </Button>
           <div className="menuBox">
-            <Button color="inherit" component={Link} raised to="/myartistlist">
+            <Button
+              color="secondary"
+              component={Link}
+              raised
+              to="/myartistlist"
+            >
               Concert List
             </Button>
-            <Button color="inherit" component={Link} raised to="/addconcert">
+            <Button color="secondary" component={Link} raised to="/addconcert">
               Add Concert
             </Button>
             <Button
-              color="inherit"
+              color="secondary"
               component={Link}
               onClick={this.props.userLogout}
               raised
