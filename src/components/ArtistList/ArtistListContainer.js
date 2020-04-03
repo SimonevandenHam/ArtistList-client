@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Paper from "@material-ui/core/Paper";
 
 import { getAllUserConcerts } from "../../store/artistList/action";
 
@@ -11,15 +12,20 @@ export class ArtistListContainer extends Component {
   showConcerts = () => {
     return this.props.artistList.map(concert => {
       return (
-        <div key={concert.id}>
-          {concert.artists.map(artist => {
-            return <p key={artist.id}> {artist.artist} </p>;
-          })}
-          <p>{concert.date}</p>
-          <p>{concert.venue}</p>
-          <p>{concert.location}</p>
-          <hr />
-        </div>
+        <Paper elevation={3} style={{ margin: 20, padding: 10 }}>
+          <div key={concert.id}>
+            {concert.artists.map(artist => {
+              return (
+                <p style={{ fontWeight: "bold", fontSize: 15 }} key={artist.id}>
+                  {artist.artist}
+                </p>
+              );
+            })}
+            <p style={{ fontSize: 13 }}>{concert.date}</p>
+            <p style={{ fontSize: 13 }}>{concert.venue}</p>
+            <p style={{ fontSize: 13 }}>{concert.location}</p>
+          </div>
+        </Paper>
       );
     });
   };
