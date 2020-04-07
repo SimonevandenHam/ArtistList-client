@@ -10,7 +10,7 @@ export class ArtistListContainer extends Component {
   }
 
   render() {
-    return <div>hiiiii</div>;
+    return <div> hiiii{this.props.concertDetail.location}</div>;
   }
 }
 
