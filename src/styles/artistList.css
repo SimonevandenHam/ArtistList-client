@@ -1,8 +1,19 @@
 .artistListBox {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .concertInformationBox{
   margin-left: 20px;
+}
+
+.artistName{
+    font-weight: bold;
+    font-size: 14;
+    color: #29434e;
+}
+
+.concertInfo{
+  font-size: 13;
+  color: #546e7a;
 }
