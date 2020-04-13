@@ -1,0 +1,8 @@
+.artistListBox {
+display: flex;
+flex-direction: row;
+}
+
+.concertInformationBox{
+  margin-left: 20px;
+}
