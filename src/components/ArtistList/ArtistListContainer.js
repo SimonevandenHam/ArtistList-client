@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 
 import { getAllUserConcerts } from "../../store/artistList/action";
+import "../../styles/artistList.css";
 
 export class ArtistListContainer extends Component {
   componentDidMount() {
@@ -10,27 +11,32 @@ export class ArtistListContainer extends Component {
   }
 
   showConcerts = () => {
-    return this.props.artistList.map(concert => {
+    return this.props.artistList.map((concert) => {
       return (
         <Paper
+          className="paper"
           elevation={3}
           style={{ margin: 20, padding: 10, backgroundColor: "bisque" }}
         >
           <div key={concert.id}>
-            {concert.artists.map(artist => {
+            {concert.artists.map((artist) => {
               return (
-                <p
-                  style={{ fontWeight: "bold", fontSize: 14, color: "#29434e" }}
-                  key={artist.id}
-                >
-                  {artist.artist}
-                </p>
+                <div className="artistListBox" key={artist.id}>
+                  <div>
+                    <img src={artist.artistPicture} alt="artist" />
+                  </div>
+                  <div className="concertInformationBox">
+                    <p className="artistName">{artist.artist}</p>
+                    <div className="concertInfo">
+                      <p>{concert.date}</p>
+                      <p>
+                        {concert.venue}, {concert.location}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-            <p style={{ fontSize: 13, color: "#546e7a" }}>{concert.date}</p>
-            <p style={{ fontSize: 13, color: "#546e7a" }}>
-              {concert.venue}, {concert.location}
-            </p>
           </div>
         </Paper>
       );
@@ -42,10 +48,10 @@ export class ArtistListContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   artistList: state.artistList,
   login: state.login,
-  selectedArtist: state.artistSearchResults.selectedArtist
+  selectedArtist: state.artistSearchResults.selectedArtist,
 });
 
 export default connect(mapStateToProps, { getAllUserConcerts })(
