@@ -9,22 +9,22 @@ import {
   searchArtistResult,
   selectArtist,
   clearSearchArtist,
-  updateSelectedArtistArray
+  updateSelectedArtistArray,
 } from "../../store/addConcert/action";
 
 class SearchArtistForm extends React.Component {
   state = {
-    artist: ""
+    artist: "",
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     this.props.searchArtistResult(this.state.artist);
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -50,7 +50,7 @@ class SearchArtistForm extends React.Component {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-around"
+            justifyContent: "space-around",
           }}
         >
           {this.props.artistSearchResults.map((artist, index) => {
@@ -82,7 +82,7 @@ class SearchArtistForm extends React.Component {
                   marginRight: 10,
                   display: "flex",
                   justifyContent: "space-between",
-                  flexDirection: "column"
+                  flexDirection: "column",
                 }}
               >
                 <p>{availableImage}</p>
@@ -103,7 +103,11 @@ class SearchArtistForm extends React.Component {
     }
   };
 
-  saveArtistToStore = artist => {
+  saveArtistToStore = (artist) => {
+    artist.artistPicture =
+      artist.picture.length > 0
+        ? artist.picture[2].url
+        : "/media/artistPlaceholder.png";
     this.props.selectArtist(artist);
     this.props.clearSearchArtist();
     this.setState({ artist: "" });
@@ -128,8 +132,8 @@ class SearchArtistForm extends React.Component {
     });
   };
 
-  deleteArtist = artist => {
-    let newArtistArray = this.props.selectedArtist.filter(function(a) {
+  deleteArtist = (artist) => {
+    let newArtistArray = this.props.selectedArtist.filter(function (a) {
       return a.spotifyArtistId !== artist.spotifyArtistId;
     });
     this.props.updateSelectedArtistArray(newArtistArray);
@@ -162,14 +166,14 @@ class SearchArtistForm extends React.Component {
 }
 
 //get information from the store
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   artistSearchResults: state.artistSearchResults.artistSearchResult,
-  selectedArtist: state.artistSearchResults.selectedArtist
+  selectedArtist: state.artistSearchResults.selectedArtist,
 });
 
 export default connect(mapStateToProps, {
   searchArtistResult,
   selectArtist,
   clearSearchArtist,
-  updateSelectedArtistArray
+  updateSelectedArtistArray,
 })(SearchArtistForm);
