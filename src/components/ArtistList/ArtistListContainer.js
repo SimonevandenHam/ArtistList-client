@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Paper from "@material-ui/core/Paper";
+import { Paper, Button } from "@material-ui/core";
 
 import { getAllUserConcerts } from "../../store/artistList/action";
 import "../../styles/artistList.css";
@@ -32,6 +33,15 @@ export class ArtistListContainer extends Component {
                       <p>
                         {concert.venue}, {concert.location}
                       </p>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        component={Link}
+                        raised
+                        to="/concertdetail/:concertId"
+                      >
+                        More concert info
+                      </Button>
                     </div>
                   </div>
                 </div>
