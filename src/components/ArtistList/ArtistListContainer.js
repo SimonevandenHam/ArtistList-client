@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Paper, Button } from "@material-ui/core";
+import { Paper, Button, useMediaQuery } from "@material-ui/core";
 
 import { getAllUserConcerts } from "../../store/artistList/action";
 import "../../styles/artistList.css";
@@ -14,15 +13,7 @@ export class ArtistListContainer extends Component {
   showConcerts = () => {
     return this.props.artistList.map((concert) => {
       return (
-        <Paper
-          className="paper"
-          elevation={3}
-          style={{
-            margin: 20,
-            padding: 10,
-            backgroundColor: "bisque",
-          }}
-        >
+        <div className="paper">
           <div key={concert.id}>
             {concert.artists.map((artist) => {
               return (
@@ -60,7 +51,7 @@ export class ArtistListContainer extends Component {
               );
             })}
           </div>
-        </Paper>
+        </div>
       );
     });
   };

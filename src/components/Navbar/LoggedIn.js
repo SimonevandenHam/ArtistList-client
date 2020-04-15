@@ -9,8 +9,8 @@ import "../../styles/navbar.css";
 class LoggedIn extends Component {
   render() {
     return (
-      <AppBar position="static">
-        <Toolbar className="navbar" color="bisque">
+      <AppBar position="static" style={{ width: "100%" }}>
+        <Toolbar className="navbar">
           <Button variant="h6" component={Link} raised to="/">
             ArtistList
           </Button>
@@ -42,8 +42,8 @@ class LoggedIn extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  login: state.login
+const mapStateToProps = (state) => ({
+  login: state.login,
 });
 
 export default connect(mapStateToProps, { userLogout })(LoggedIn);

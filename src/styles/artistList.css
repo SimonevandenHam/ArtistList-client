@@ -30,10 +30,34 @@
 
 .paper{
   width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: bisque;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
 .paperContainer{
   display: flex;
   flex-direction: row; 
+}
+
+
+@media (max-width: 1023px) {
+ 
+
+}
+@media (max-width: 767px) {
+  .paperContainer{
+    width: 100px%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+  }
+  
+  .paper{
+    width: 280px;
+    margin: 20px auto
+  
+  }
 }

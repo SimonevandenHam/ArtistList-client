@@ -31,3 +31,11 @@
   color: red;
   font-size: 12px;
 }
+
+@media (max-width: 767px) {
+  .signUpHereContainer {
+    width: 70%;
+    padding: 10px;
+  
+  }
+  }
