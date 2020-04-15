@@ -9,30 +9,30 @@ export class SignUpFormContainer extends Component {
   state = {
     email: "",
     password: "",
-    password1: ""
+    password1: "",
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
     if (this.state.password === this.state.password1) {
       this.props.createUser({
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       });
       this.setState({
         email: "",
         password: "",
-        password1: ""
+        password1: "",
       });
     } else {
       this.setState({
-        error: "passwords not equal, please enter your password again"
+        error: "passwords not equal, please enter your password again",
       });
     }
   };
@@ -40,7 +40,7 @@ export class SignUpFormContainer extends Component {
   render() {
     const errorMessage = this.state.error ? this.state.error : null;
     if (this.props.signup !== "") {
-      return <Redirect to="/myartistlist" />;
+      return <Redirect to="/addconcert" />;
     } else {
       return (
         <div>
@@ -56,8 +56,8 @@ export class SignUpFormContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  signup: state.signup
+const mapStateToProps = (state) => ({
+  signup: state.signup,
 });
 
 export default connect(mapStateToProps, { createUser })(SignUpFormContainer);

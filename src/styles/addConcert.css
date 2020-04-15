@@ -5,6 +5,7 @@
   height: auto;
   padding: 20px 0;
   background-color: bisque;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .concertContainer {
@@ -18,3 +19,16 @@ h6 {
   margin: 0px;
   font-weight: normal;
 }
+
+
+@media (max-width: 1023px) {
+ 
+
+}
+@media (max-width: 767px) {
+  .concertFormContainer {
+    padding: 20px;
+    margin-top: 40px;
+    width: 70%;
+  }
+  }

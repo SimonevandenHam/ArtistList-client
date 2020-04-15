@@ -1,10 +1,13 @@
 .artistListBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .concertInformationBox{
-  margin-left: 20px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .artistName{
@@ -14,6 +17,47 @@
 }
 
 .concertInfo{
+  margin-left: 20px;
   font-size: 13;
   color: #546e7a;
+}
+
+.spotifyLogo{
+  margin-left: 20px;
+  height: 30px;
+  width: 30px;
+}
+
+.paper{
+  width: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: bisque;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.paperContainer{
+  display: flex;
+  flex-direction: row; 
+}
+
+
+@media (max-width: 1023px) {
+ 
+
+}
+@media (max-width: 767px) {
+  .paperContainer{
+    width: 100px%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+  }
+  
+  .paper{
+    width: 280px;
+    margin: 20px auto
+  
+  }
 }
