@@ -16,6 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <header>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <Navbar />
         </header>
         <div>

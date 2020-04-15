@@ -1,10 +1,13 @@
 .artistListBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .concertInformationBox{
-  margin-left: 20px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .artistName{
@@ -14,6 +17,23 @@
 }
 
 .concertInfo{
+  margin-left: 20px;
   font-size: 13;
   color: #546e7a;
+}
+
+.spotifyLogo{
+  margin-left: 20px;
+  height: 30px;
+  width: 30px;
+}
+
+.paper{
+  width: 300px;
+
+}
+
+.paperContainer{
+  display: flex;
+  flex-direction: row; 
 }

@@ -67,7 +67,7 @@ class SearchArtistForm extends React.Component {
             } else {
               availableImage = (
                 <img
-                  src="/media/artistPlaceholder.png"
+                  src="/assets/images/artistPlaceholder.png"
                   alt="placeholder artist"
                   style={imgStyle}
                 />
@@ -115,6 +115,7 @@ class SearchArtistForm extends React.Component {
 
   displaySelectedArtist = () => {
     return this.props.selectedArtist.map((artist, index) => {
+      console.log(artist);
       return (
         <ul key="index">
           <p>{artist.artist}</p>
