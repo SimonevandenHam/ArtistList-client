@@ -12,9 +12,7 @@ class signUpHereContainer extends React.Component {
         <div>
           <div className="signUpHereContainer">
             <h2 className="textContainer">
-              KEEP TRACK OFF ALL THE ARTISTS
-              <br />
-              YOU'VE SEEN LIVE
+              START KEEPING TRACK OFF ALL THE ARTISTS YOU'VE SEEN LIVE
             </h2>
             <div className="buttonContainer">
               <Button
@@ -38,9 +36,9 @@ class signUpHereContainer extends React.Component {
                 variant="contained"
                 component={Link}
                 raised
-                to="/addconcert"
+                to="/signup"
               >
-                add concert to my list
+                Sign up to add concerts to my list
               </Button>
             </div>
           </div>
@@ -51,9 +49,9 @@ class signUpHereContainer extends React.Component {
                 variant="contained"
                 component={Link}
                 raised
-                to="/myartistlist"
+                to="/signup"
               >
-                go to my concert list
+                sing up to go to my concert list
               </Button>
             </div>
           </div>

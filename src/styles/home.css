@@ -2,19 +2,30 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
+  margin: auto;
 }
 
 .signUpHereContainer {
+  padding: 15px;
+  margin: auto;
   margin-top: 50px;
   text-align: center;
-  width: 50%;
-  height: 300px;
+  width: 400px;
+  height: 250px;
   justify-content: space-around;
   background-color: bisque;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.imagesContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 40px;
+  justify-content: space-between;
 }
 
 .textContainer {
@@ -33,10 +44,53 @@
   font-size: 12px;
 }
 
+.button {
+  margin-top: 100px;
+  transition: 0.5s ease;
+  opacity: 0;
+  justify-content: center;
+}
+
+.imageContainer:hover .button {
+  opacity: 1;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 225px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ticket {
+  opacity: 0.5;
+  margin-top: 20px;
+  background-image: url("/assets/images/tickets.jpeg");
+}
+
+.ticket:hover {
+  opacity: 1;
+}
+
+.concert {
+  opacity: 0.5;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url("/assets/images/concert.jpeg");
+}
+
+.concert:hover {
+  opacity: 1;
+}
+
 @media (max-width: 767px) {
   .signUpHereContainer {
     width: 70%;
-    padding: 10px;
-  
   }
+
+  .imageContainer {
+    width: 300px;
   }
+}

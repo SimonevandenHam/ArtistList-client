@@ -12,21 +12,8 @@ class signUpHereContainer extends React.Component {
         <div>
           <div className="signUpHereContainer">
             <h2 className="textContainer">
-              KEEP TRACK OFF ALL THE ARTISTS
-              <br />
-              YOU'VE SEEN LIVE
+              KEEP TRACK OFF ALL THE ARTISTS YOU'VE SEEN LIVE
             </h2>
-            <div className="buttonContainer">
-              <Button
-                color="primary"
-                variant="contained"
-                component={Link}
-                raised
-                to="/signup"
-              >
-                Sign up here
-              </Button>
-            </div>
           </div>
         </div>
 
