@@ -7,6 +7,7 @@
 }
 
 .signUpHereContainer {
+  padding: 15px;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -75,6 +76,7 @@
 .concert {
   opacity: 0.5;
   margin-top: 50px;
+  margin-bottom: 30px;
   background-size: cover;
   background-image: url("/assets/images/concert.jpeg");
 }
@@ -86,6 +88,9 @@
 @media (max-width: 767px) {
   .signUpHereContainer {
     width: 70%;
-    padding: 10px;
+  }
+
+  .imageContainer {
+    width: 300px;
   }
 }
