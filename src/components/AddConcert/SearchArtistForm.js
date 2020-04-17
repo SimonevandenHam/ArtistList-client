@@ -11,6 +11,7 @@ import {
   clearSearchArtist,
   updateSelectedArtistArray,
 } from "../../store/addConcert/action";
+import "../../styles/addConcert.css";
 
 class SearchArtistForm extends React.Component {
   state = {
@@ -46,22 +47,16 @@ class SearchArtistForm extends React.Component {
       return <h6>you can add more artists</h6>;
     } else {
       return (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-          }}
-        >
+        <div className="displaySearchResult">
           {this.props.artistSearchResults.map((artist, index) => {
             let availableImage = null;
-            const imgStyle = { width: 75, height: 75 };
+
             if (artist.picture.length > 0) {
               availableImage = (
                 <img
+                  className="artistImage"
                   src={artist.picture[2].url}
                   alt="artist"
-                  style={imgStyle}
                 />
               );
             } else {
@@ -69,24 +64,14 @@ class SearchArtistForm extends React.Component {
                 <img
                   src="/assets/images/artistPlaceholder.png"
                   alt="placeholder artist"
-                  style={imgStyle}
+                  className="artistImage"
                 />
               );
             }
             return (
-              <div
-                key={index}
-                style={{
-                  width: 75,
-                  marginLeft: 10,
-                  marginRight: 10,
-                  display: "flex",
-                  justifyContent: "space-between",
-                  flexDirection: "column",
-                }}
-              >
+              <div key={index} className="artistImageBox">
                 <p>{availableImage}</p>
-                <p style={{ fontSize: 12 }}>{artist.artist}</p>
+                <p>{artist.artist}</p>
                 <Button
                   type="button"
                   onClick={() => {
@@ -118,16 +103,19 @@ class SearchArtistForm extends React.Component {
       console.log(artist);
       return (
         <ul key="index">
-          <p>{artist.artist}</p>
-          <Button
-            aria-label="delete"
-            type="button"
-            onClick={() => {
-              this.deleteArtist(artist);
-            }}
-          >
-            <DeleteIcon fontSize="medium" />
-          </Button>
+          <div className="displayArtistSearchResult">
+            <p>{artist.artist}</p>
+            <Button
+              style={{ minWidth: 20 }}
+              aria-label="delete"
+              type="button"
+              onClick={() => {
+                this.deleteArtist(artist);
+              }}
+            >
+              <DeleteIcon fontSize="small" />
+            </Button>
+          </div>
         </ul>
       );
     });
@@ -145,21 +133,24 @@ class SearchArtistForm extends React.Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <TextField
+            className="searchField"
             onChange={this.onChange}
             type="text"
             required="required"
             name="artist"
             placeholder="Artist"
-            style={{ width: "110px" }}
             value={this.state.artist}
           ></TextField>
 
-          <Button type="submit">
-            <SearchIcon />
+          <Button type="submit" style={{ padding: 0, minWidth: 30 }}>
+            <SearchIcon style={{ padding: 0 }} />
           </Button>
         </form>
         <div>{this.displayArtistSearchResult()}</div>
-        {this.props.selectedArtist.length > 0 ? "selected artists" : null}
+
+        {this.props.selectedArtist.length > 0 ? (
+          <h5>selected artists : </h5>
+        ) : null}
         {this.displaySelectedArtist()}
       </div>
     );

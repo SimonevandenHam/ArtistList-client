@@ -9,29 +9,29 @@ class AddConcertFormContainer extends React.Component {
     date: "",
     endDate: "",
     venue: "",
-    location: ""
+    location: "",
   };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     event.preventDefault();
 
     const concertInformation = {
       concert: this.state,
-      artist: this.props.selectedArtist
+      artist: this.props.selectedArtist,
     };
     this.props.addConcert(concertInformation, this.props.login);
     this.setState({
       date: "",
       endDate: "",
       venue: "",
-      location: ""
+      location: "",
     });
     this.props.clearSelectedArtist();
   };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -48,7 +48,7 @@ class AddConcertFormContainer extends React.Component {
               type="date"
               name="date"
               InputLabelProps={{
-                shrink: true
+                shrink: true,
               }}
               value={this.state.date}
             />
@@ -58,10 +58,11 @@ class AddConcertFormContainer extends React.Component {
               onChange={this.onChange}
               label="end date"
               type="date"
+              required="required"
               name="endDate"
               format="yyyy/MM/dd"
               InputLabelProps={{
-                shrink: true
+                shrink: true,
               }}
               value={this.state.endDate}
             />
@@ -97,9 +98,9 @@ class AddConcertFormContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   selectedArtist: state.artistSearchResults.selectedArtist,
-  login: state.login
+  login: state.login,
 });
 
 export default connect(mapStateToProps, { addConcert, clearSelectedArtist })(
