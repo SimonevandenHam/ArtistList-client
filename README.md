@@ -20,6 +20,6 @@ Also run [ArtistList-server](https://github.com/SimonevandenHam/ArtistList-serve
 
       $ npm install
 
-- change the baseUrl in [config.js](https://github.com/SimonevandenHam/ArtistList-client/blob/master/src/config.js) to the right host
+- change the baseUrl in [config.js](https://github.com/SimonevandenHam/ArtistList-client/blob/master/src/config.js) to the host of your ArtistList server
 
 ### Have fun!🤩

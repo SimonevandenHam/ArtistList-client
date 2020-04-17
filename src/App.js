@@ -7,7 +7,6 @@ import SignUpFormContainer from "./components/SingUp/SignUpFormContainer";
 import LoginFormContainer from "./components/Login/LoginFormContainer";
 import ArtistListContainer from "./components/ArtistList/ArtistListContainer";
 import AddConcertFormContainer from "./components/AddConcert/AddConcertFormContainer";
-import ConcertDetailContainer from "./components/ConcertDetail/ConcertDetailContainer";
 
 import "./styles/generalStyle.css";
 
@@ -25,11 +24,6 @@ class App extends React.Component {
           <Route exact path="/login" component={LoginFormContainer} />
           <Route exact path="/myartistlist" component={ArtistListContainer} />
           <Route exact path="/addconcert" component={AddConcertFormContainer} />
-          <Route
-            exact
-            path="/concertdetail/:concertId"
-            component={ConcertDetailContainer}
-          />
         </div>
       </div>
     );

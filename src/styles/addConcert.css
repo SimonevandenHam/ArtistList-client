@@ -1,5 +1,5 @@
 .concertFormContainer {
-  margin-top: 50px;
+  margin: 50px;
   text-align: center;
   width: 50%;
   height: auto;
@@ -9,6 +9,8 @@
 }
 
 .concertContainer {
+  color: #29434e;
+  font-weight: bold;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,10 +22,43 @@ h6 {
   font-weight: normal;
 }
 
+.displaySearchResult {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.artistImage {
+  width: 100px;
+  height: 100px;
+}
+
+.artistImageBox {
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 11px;
+}
+
+.displayArtistSearchResult {
+  font-size: 11px;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+}
+
+.searchField {
+  width: 143px;
+}
+
+ul {
+  padding: 0;
+}
 
 @media (max-width: 1023px) {
- 
-
 }
 @media (max-width: 767px) {
   .concertFormContainer {
@@ -31,4 +66,8 @@ h6 {
     margin-top: 40px;
     width: 70%;
   }
+
+  .searchField {
+    width: 127px;
   }
+}

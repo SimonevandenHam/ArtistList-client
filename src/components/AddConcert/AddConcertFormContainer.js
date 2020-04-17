@@ -11,12 +11,10 @@ class AddConcertFormContainer extends React.Component {
     return (
       <div className="concertContainer">
         <div className="concertFormContainer">
-          <h4 style={{ color: "#29434e", fontWeigth: "bold" }}>
-            Add a concert to your concert list
-          </h4>
+          <h4>Add a concert to your concert list</h4>
           <SearchArtistForm />
           <AddConcertInfoForm />
-        </div>{" "}
+        </div>
       </div>
     );
   }
