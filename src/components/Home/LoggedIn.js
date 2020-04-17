@@ -19,7 +19,7 @@ class signUpHereContainer extends React.Component {
 
         <div className="imagesContainer">
           <div className="imageContainer ticket">
-            <div class="button">
+            <div className="button">
               <Button
                 color="primary"
                 variant="contained"
@@ -32,7 +32,7 @@ class signUpHereContainer extends React.Component {
             </div>
           </div>
           <div className="imageContainer concert">
-            <div class="button">
+            <div className="button">
               <Button
                 color="primary"
                 variant="contained"
