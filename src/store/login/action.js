@@ -1,13 +1,13 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
+import baseUrl from "../../config";
 
 export const LOGIN = "LOGIN";
 
 function login(payload) {
   return {
     type: LOGIN,
-    payload
+    payload,
   };
 }
 
@@ -15,7 +15,7 @@ export const userLogin = (email, password) => (dispatch, getState) => {
   request
     .post(`${baseUrl}/login`)
     .send({ email, password })
-    .then(response => {
+    .then((response) => {
       sessionStorage.setItem("jwtToken", response.body.jwt);
       const action = login(response.body.jwt);
       dispatch(action);
@@ -28,7 +28,7 @@ export const LOGOUT = "LOGOUT";
 function logout(payload) {
   return {
     type: LOGOUT,
-    payload
+    payload,
   };
 }
 

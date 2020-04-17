@@ -1,21 +1,21 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
+import baseUrl from "../../config";
 
 export const NEW_USER = "NEW_USER";
 
 function newUser(payload) {
   return {
     type: NEW_USER,
-    payload
+    payload,
   };
 }
 
-export const createUser = data => (dispatch, getState) => {
+export const createUser = (data) => (dispatch, getState) => {
   request
     .post(`${baseUrl}/user`)
     .send(data)
-    .then(response => {
+    .then((response) => {
       const action = newUser(response.body);
       dispatch(action);
     })

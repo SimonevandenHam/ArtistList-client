@@ -1,6 +1,5 @@
 import request from "superagent";
-
-const baseUrl = "http://localhost:4000";
+import baseUrl from "../../config";
 
 export const ALL_CONCERT_OF_USER = "ALL_CONCERT_OF_USER";
 

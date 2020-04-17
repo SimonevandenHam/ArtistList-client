@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const baseUrl = "http://localhost:4000";
+import baseUrl from "../../config";
 
 export const SEARCH_ARTIST = "SEARCH_ARTIST";
 

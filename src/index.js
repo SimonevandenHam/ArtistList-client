@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
-import blue from "@material-ui/core/colors/blue";
+
 
 import "./styles/generalStyle.css";
 
@@ -11,13 +11,6 @@ import App from "./App";
 import store from "./store";
 
 const theme = createMuiTheme({
-  //   palette: {
-  //     primary: {
-  //       main: "#283593"
-  //     },
-  //     secondary: blue
-  //   }
-  // });
   palette: {
     primary: {
       light: "#819ca9",
