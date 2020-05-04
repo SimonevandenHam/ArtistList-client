@@ -1,1 +1,1 @@
-export const baseUrl = "https://safe-wildwood-58403.herokuapp.com";
+export default baseUrl = "https://safe-wildwood-58403.herokuapp.com";
