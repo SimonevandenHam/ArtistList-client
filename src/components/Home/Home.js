@@ -6,7 +6,6 @@ import LoggedIn from "./LoggedIn";
 
 class Home extends Component {
   render() {
-    console.log(this.props.login);
     if (this.props.login !== null) {
       return <LoggedIn />;
     } else {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Paper, Button, useMediaQuery } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 import { getAllUserConcerts } from "../../store/artistList/action";
 import "../../styles/artistList.css";

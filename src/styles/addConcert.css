@@ -58,6 +58,10 @@ ul {
   padding: 0;
 }
 
+.inputField {
+  margin: 10px;
+}
+
 @media (max-width: 1023px) {
 }
 @media (max-width: 767px) {

@@ -6,7 +6,6 @@ import LoggedIn from "./LoggedIn";
 
 class Navbar extends Component {
   render() {
-    console.log(this.props.login);
     if (this.props.login !== null) {
       return <LoggedIn />;
     } else {
@@ -14,8 +13,8 @@ class Navbar extends Component {
     }
   }
 }
-const mapStateToProps = state => ({
-  login: state.login
+const mapStateToProps = (state) => ({
+  login: state.login,
 });
 
 export default connect(mapStateToProps)(Navbar);

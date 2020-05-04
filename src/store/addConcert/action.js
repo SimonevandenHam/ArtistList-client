@@ -95,7 +95,6 @@ export const addConcert = (data, jwt) => (dispatch, getState) => {
     .set("Authorization", `Bearer ${jwt}`)
     .send(data)
     .then((response) => {
-      console.log("add concert action", response.body);
       const action = newConcert(response.body);
       dispatch(action);
     })

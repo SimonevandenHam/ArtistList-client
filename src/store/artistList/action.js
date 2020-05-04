@@ -15,7 +15,7 @@ export const getAllUserConcerts = (jwt) => (dispatch, getState) => {
     .get(`${baseUrl}/concerts`)
     .set("Authorization", `Bearer ${jwt}`)
     .then((response) => {
-      console.log(response.body);
+    
       const action = getConcert(response.body);
       dispatch(action);
     })

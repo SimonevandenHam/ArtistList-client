@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { TextField, Button } from "@material-ui/core";
 
 import { addConcert, clearSelectedArtist } from "../../store/addConcert/action";
+import "../../styles/addConcert.css";
 
 class AddConcertFormContainer extends React.Component {
   state = {
@@ -39,11 +40,11 @@ class AddConcertFormContainer extends React.Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <p>
+          <div className="inputField">
             <TextField
+              required
               onChange={this.onChange}
               label="start date"
-              required="required"
               format="yyyy/MM/dd"
               type="date"
               name="date"
@@ -52,13 +53,13 @@ class AddConcertFormContainer extends React.Component {
               }}
               value={this.state.date}
             />
-          </p>
-          <p>
+          </div>
+          <div className="inputField">
             <TextField
+              required
               onChange={this.onChange}
               label="end date"
               type="date"
-              required="required"
               name="endDate"
               format="yyyy/MM/dd"
               InputLabelProps={{
@@ -66,29 +67,29 @@ class AddConcertFormContainer extends React.Component {
               }}
               value={this.state.endDate}
             />
-          </p>
-          <p>
+          </div>
+          <div className="inputField">
             <TextField
+              required
               onChange={this.onChange}
               label="Venue"
               type="text"
-              required="required"
               name="venue"
               placeholder="Venue"
               value={this.state.email}
             ></TextField>
-          </p>
-          <p>
+          </div>
+          <div className="inputField">
             <TextField
+              required
               onChange={this.onChange}
               label="Location"
               type="test"
-              required="required"
               name="location"
               placeholder="Location"
               value={this.state.password}
             ></TextField>
-          </p>
+          </div>
           <Button type="submit" variant="contained" color="primary">
             Add Concert
           </Button>
