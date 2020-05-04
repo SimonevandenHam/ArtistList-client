@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { AppBar, Toolbar, Button } from "@material-ui/core";
 
 import { userLogout } from "../../store/login/action";
 import "../../styles/navbar.css";
@@ -11,26 +11,20 @@ class LoggedIn extends Component {
     return (
       <AppBar position="static" style={{ width: "100%" }}>
         <Toolbar className="navbar">
-          <Button variant="h6" component={Link} raised to="/">
+          <Button variant="h6" component={Link} to="/">
             ArtistList
           </Button>
           <div className="menuBox">
-            <Button
-              color="secondary"
-              component={Link}
-              raised
-              to="/myartistlist"
-            >
+            <Button color="secondary" component={Link} to="/myartistlist">
               Concert List
             </Button>
-            <Button color="secondary" component={Link} raised to="/addconcert">
+            <Button color="secondary" component={Link} to="/addconcert">
               Add Concert
             </Button>
             <Button
               color="secondary"
               component={Link}
               onClick={this.props.userLogout}
-              raised
               to="/"
             >
               Logout

@@ -10,14 +10,14 @@ class LoggedOut extends Component {
     return (
       <AppBar position="static">
         <Toolbar className="navbar">
-          <Button variant="h6" component={Link} raised to="/" color="bisque">
+          <Button variant="h6" component={Link}  to="/" color="bisque">
             ArtistList
           </Button>
           <div className="menuBox">
-            <Button color="secondary" component={Link} raised to="/signup">
+            <Button color="secondary" component={Link}  to="/signup">
               Sign up
             </Button>
-            <Button color="secondary" component={Link} raised to="/login">
+            <Button color="secondary" component={Link} to="/login">
               Login
             </Button>
           </div>

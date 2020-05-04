@@ -100,7 +100,6 @@ class SearchArtistForm extends React.Component {
 
   displaySelectedArtist = () => {
     return this.props.selectedArtist.map((artist, index) => {
-      console.log(artist);
       return (
         <ul key="index">
           <div className="displayArtistSearchResult">
@@ -133,10 +132,11 @@ class SearchArtistForm extends React.Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <TextField
+            required
+            id="filled-required"
             className="searchField"
             onChange={this.onChange}
             type="text"
-            required="required"
             name="artist"
             placeholder="Artist"
             value={this.state.artist}

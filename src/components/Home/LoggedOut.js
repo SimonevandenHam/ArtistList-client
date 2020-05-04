@@ -19,7 +19,6 @@ class signUpHereContainer extends React.Component {
                 color="primary"
                 variant="contained"
                 component={Link}
-                raised
                 to="/signup"
               >
                 Sign up here
@@ -35,7 +34,6 @@ class signUpHereContainer extends React.Component {
                 color="primary"
                 variant="contained"
                 component={Link}
-                raised
                 to="/signup"
               >
                 Sign up to add concerts to my list
@@ -48,7 +46,6 @@ class signUpHereContainer extends React.Component {
                 color="primary"
                 variant="contained"
                 component={Link}
-                raised
                 to="/signup"
               >
                 sing up to go to my concert list
